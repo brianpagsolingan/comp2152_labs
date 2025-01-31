@@ -155,6 +155,14 @@ input("Roll the dice for the monster's health points (Press enter)")
 m_health_points = random.choice(diceOptions)
 print("Player rolled " + str(m_health_points) + " health points for the monster")
 
+# Lab4 - q5
+print("You have found the kiit bag! Look inside to look at the 2 items")
+input("Roll for the first item (Press enter)")
+loot_roll = random.choice(1, len(loot_options + 1))
+loot = loot_options.pop(loot_roll-1)
+belt.append(loot)
+print("Your belt: ", belt)
+
 input("Analyze the roll (Press enter)")
 # Compare Player vs Monster's strength
 print("--- You are matched in strength: " + str(combat_strength == m_combat_strength))
