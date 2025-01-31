@@ -1,5 +1,6 @@
 # Import the random library to use for the dice later
 import random
+import time
 
 # Hero's Attack Functions
 def hero_attacks(combat_strength, m_health_points):
