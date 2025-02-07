@@ -13,14 +13,14 @@ def use_loot(belt, health_points):
     print("    |    !!You see a monster in the distance! So you quickly use your first item:")
     first_item = belt.pop[0]
     if first_item in good_loot_options:
-        health_points = min(20, (health_points + 2))
+        health_points = min(20, (health_points+2))
         print("    |    You used " + first_item +" to up your health to " + str(health_points) )
     elif first_item in bad_loot_options:
         health_points = min(20, (health_points - 2))
         print("    |    You used " + first_item + " to hurt your health to " + str(health_points) )
     else:
         print("    |    You used " +  + " but it's not helpful")
-    return 
+    return belt, health_points
 
 
 # Lab 5: Question 3 
@@ -41,7 +41,7 @@ def collect_loot(loot_options, belt):
               @@@@@@@@@@@@          
               """
     print(ascii_image3)
-    loot_roll = random.choice(range(1, len(loot_options + 1)))
+    loot_roll = random.choice(range(1, len(loot_options+1)))
     loot = loot_options.pop(loot_roll-1)
     belt.append(loot)
     return loot_options, belt
@@ -118,7 +118,7 @@ def monster_attacks(m_combat_strength, health_points):
 # Recursion
 # You can choose to go crazy, but it will reduce your health points by 5
 def inception_dream(num_dream_levels):
-    num_dream_levels - int(num_dream_levels)
+    num_dream_levels = int(num_dream_levels)
     # Base Case
     if num_dream_levels == 1:
         print("    |    You are in the deepest dream level now")
