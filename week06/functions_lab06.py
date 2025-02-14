@@ -139,7 +139,7 @@ def inception_dream(num_dream_lvls):
 
 # Lab 06 - Question 3 and 4
 def saveGame(winner, hero_name= " ", num_star=0):
-    with open("save.txt", "a") as file:
+    with open("week06/save.txt", "a") as file:
         if winner == "Hero":
             file.write(f"Hero {hero_name} has killed the monster and gained {num_star} stars\n")
         elif winner == "Monster":
@@ -149,20 +149,20 @@ def saveGame(winner, hero_name= " ", num_star=0):
 # Lab 06 - Question 5a
 def load_game():
     try:
-        with open("save.txt", "a") as file:
+        with open("week06/save.txt", "r") as file:
             print("     |   loading from save file.")
-            lines = file.readlines
+            lines = file.readlines()
             if lines:
                 last_line = lines[-1].strip()
                 print(last_line)
                 return last_line
-        return True
     except FileNotFoundError:
+        
         print("     |   No previous file found.")
-        return True
+        return None
 # Lab 06 - Question 5b
 def adjustment_combat_strength(combat_strength, m_combat_strength):
-    last_game = last_game()
+    last_game = load_game()
     if last_game:
         if "Hero" in last_game and "gained" in last_game:
             num_stars = int(last_game.split()[-2])
