@@ -7,7 +7,7 @@ import functions_lab06
 print("    ------------------------------------------------------------------")
 print("    |    Loading previous game data...")
 # Lab 06 - Question 5
-
+last_game = functions_lab06.load_game()
 # Game Flow
 # Define two Dice
 small_dice_options = list(range(1, 7))
@@ -88,7 +88,7 @@ if not input_invalid:
     print("    |    The hero\'s weapon is " + str(weapons[weapon_roll - 1]))
 
     # Lab 06 - Question 5b
-    
+    functions_lab06.adjustment_combat_strength(combat_strength, m_combat_strength)
     # Weapon Roll Analysis
     print("    ------------------------------------------------------------------")
     print("    |", end="    ")
