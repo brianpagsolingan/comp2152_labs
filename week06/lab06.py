@@ -2,7 +2,7 @@
 import random
 
 # Put all the functions into another file and import them
-import functions_lab06_starter
+import functions_lab06
 
 print("    ------------------------------------------------------------------")
 print("    |    Loading previous game data...")
@@ -253,4 +253,5 @@ if not input_invalid:
     if not input_invalid:
         stars_display = "*" * num_stars
         print("    |    Hero " + short_name + " gets <" + stars_display + "> stars")
-        # Lab 06 - Question 3 and 4    
+        # Lab 06 - Question 3 and 4
+        functions_lab06.saveGame(winner, hero_name, num_stars)    
