@@ -13,7 +13,7 @@ print(f"OS Name: {platform.system()}\n")
 
 print(f"Current PID: {os.getpid()}")
 
-file_name = "fdpractice.txt"
+file_name = "week09/fdpractice.txt"
 file_handler = os.open(file_name, os.O_RDWR | os.O_CREAT)
 print(f"[PID: {os.getpid()}] Opened the file_handle : {file_handler}\n")
 
