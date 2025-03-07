@@ -40,21 +40,25 @@ while not input_valid and i in range(5):
 m_input_valid = False
 
 while not m_input_valid and i in range(5):
-    m_combat_strength = input("Enter the monster's combat Strength (1-6): ")
+    try:
+        m_combat_strength = input("Enter the monster's combat Strength (1-6): ")
 
-    # Validate input: Check if the string inputted is numeric
-    if not m_combat_strength.isnumeric():
-        # If one of the inputs are invalid, print error message and halt
-        print("One or more invalid inputs. Monster needs to enter integer numbers for Combat Strength")
-        i = i + 1
+        # Validate input: Check if the string inputted is numeric
+        if not m_combat_strength.isnumeric():
+            # If one of the inputs are invalid, print error message and halt
+            print("One or more invalid inputs. Monster needs to enter integer numbers for Combat Strength")
+            i = i + 1
 
-    # Note: Now safe to cast combat_strength to integer
-    # Validate input: Check if the string inputted
-    elif int(m_combat_strength) not in range(1, 7):
-        print("Enter a valid integer between 1 and 6 only")
-        i = i + 1
-    else:
-        m_input_valid = True
+        # Note: Now safe to cast combat_strength to integer
+        # Validate input: Check if the string inputted
+        elif int(m_combat_strength) not in range(1, 7):
+            print("Enter a valid integer between 1 and 6 only")
+            i = i + 1
+        else:
+            m_input_valid = True
+    except ValueError:
+        print("Exception: Invalid input. Please enter integer value!")
+
 
 if input_valid and m_input_valid:
     # Input was valid - broke out of while loop
@@ -75,6 +79,12 @@ print("Player rolled " + str(m_combat_strength) + " combat strength for the mons
 input("Roll the dice for the monster's health points (Press enter)")
 m_health_points = random.choice(big_dice_options)
 print("Player rolled " + str(m_health_points) + " health points for the monster")
+
+
+try:
+    m_health_points = function.hero_attacks("something1", "something2")
+except TypeError as te:
+    print("Error Class: " + str(te))
 
 # Loop while the monster and the player are alive. Call fight sequence functions
 while m_health_points > 0 and health_points > 0:
