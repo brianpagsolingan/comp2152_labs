@@ -1,0 +1,2 @@
+Monster has killed the hero previously
+The hero has kiled the monster 0 times
